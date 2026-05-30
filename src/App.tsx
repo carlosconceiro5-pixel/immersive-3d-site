@@ -1,7 +1,11 @@
+import { lazy, Suspense } from 'react'
 import { useLenis } from './hooks/useLenis'
-import { Scene } from './components/Scene'
 import 'lenis/dist/lenis.css'
 import './App.css'
+
+const Scene = lazy(() =>
+  import('./components/Scene').then((module) => ({ default: module.Scene })),
+)
 
 const features = [
   {
@@ -23,7 +27,9 @@ function App() {
 
   return (
     <>
-      <Scene />
+      <Suspense fallback={null}>
+        <Scene />
+      </Suspense>
 
       <header className="nav">
         <span className="nav__brand">IMMERSIVE</span>
