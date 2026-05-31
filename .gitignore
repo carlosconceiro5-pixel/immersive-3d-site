@@ -24,4 +24,6 @@ dist-ssr
 *.sw?
 .vercel
 *.report.html
-*.report.html
+
+# Local Netlify folder
+.netlify
