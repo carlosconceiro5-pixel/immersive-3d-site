@@ -19,10 +19,10 @@ function App() {
       <Nav />
       <main>
         <Hero />
+        <Projects />
         <Services />
         <DesignBuild />
         <Process />
-        <Projects />
         <About />
         <Contact />
       </main>
