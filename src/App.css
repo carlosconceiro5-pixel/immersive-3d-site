@@ -828,3 +828,66 @@
 .project-card__link:hover {
   text-decoration: underline;
 }
+
+/* Mobile hamburger navigation */
+.nav__toggle {
+  display: none;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-pill);
+  background: rgba(246, 244, 239, 0.88);
+  cursor: pointer;
+}
+
+.nav__toggle span {
+  display: block;
+  width: 1.1rem;
+  height: 2px;
+  margin: 4px auto;
+  border-radius: 999px;
+  background: var(--text-strong);
+}
+
+.nav__mobile {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .nav__links,
+  .nav__cta {
+    display: none;
+  }
+
+  .nav__inner {
+    flex-wrap: nowrap;
+  }
+
+  .nav__toggle {
+    display: block;
+    margin-left: auto;
+  }
+
+  .nav__mobile {
+    display: none;
+    padding: 0 1rem 1rem;
+    background: rgba(246, 244, 239, 0.96);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(16px);
+  }
+
+  .nav__mobile--open {
+    display: grid;
+    gap: 0.85rem;
+  }
+
+  .nav__mobile a:not(.btn) {
+    color: var(--text-strong);
+    font-weight: 700;
+  }
+
+  .nav__mobile .btn {
+    width: 100%;
+  }
+}
