@@ -1,5 +1,15 @@
 import { useState } from 'react'
-import { business, navLinks } from '../data/site'
+import { NavLink } from 'react-router-dom'
+import { business } from '../data/site'
+
+const navLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'Services', href: '/services' },
+  { label: 'Projects', href: '/projects' },
+  { label: 'Investors', href: '/investors' },
+  { label: 'About', href: '/about' },
+  { label: 'Contact', href: '/contact' },
+]
 
 export function Nav() {
   const [isOpen, setIsOpen] = useState(false)
@@ -8,21 +18,21 @@ export function Nav() {
   return (
     <header className="nav">
       <div className="nav__inner container">
-        <a className="nav__brand" href="#top" onClick={closeMenu}>
+        <NavLink className="nav__brand" to="/" onClick={closeMenu}>
           {business.name}
-        </a>
+        </NavLink>
 
         <nav className="nav__links" aria-label="Primary">
           {navLinks.map((link) => (
-            <a key={link.href} href={link.href}>
+            <NavLink key={link.href} to={link.href}>
               {link.label}
-            </a>
+            </NavLink>
           ))}
         </nav>
 
-        <a className="btn btn--primary nav__cta" href="#contact">
+        <NavLink className="btn btn--primary nav__cta" to="/contact">
           Start your project
-        </a>
+        </NavLink>
 
         <button
           type="button"
@@ -40,14 +50,14 @@ export function Nav() {
 
       <div className={`nav__mobile ${isOpen ? 'nav__mobile--open' : ''}`} id="mobile-menu">
         {navLinks.map((link) => (
-          <a key={link.href} href={link.href} onClick={closeMenu}>
+          <NavLink key={link.href} to={link.href} onClick={closeMenu}>
             {link.label}
-          </a>
+          </NavLink>
         ))}
 
-        <a className="btn btn--primary" href="#contact" onClick={closeMenu}>
+        <NavLink className="btn btn--primary" to="/contact" onClick={closeMenu}>
           Start your project
-        </a>
+        </NavLink>
       </div>
     </header>
   )
