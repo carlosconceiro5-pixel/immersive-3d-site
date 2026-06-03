@@ -1,6 +1,5 @@
+import { Link } from 'react-router-dom'
 import { homes } from '../data/homes'
-
-const palettes = ['a', 'b', 'c', 'd'] as const
 
 function statusModifier(status: string) {
   return status.toLowerCase().replaceAll(' ', '-')
@@ -16,15 +15,15 @@ export function Projects() {
         </div>
 
         <div className="projects__grid">
-          {homes.map((home, index) => (
+          {homes.map((home) => (
             <article className="project-card" key={home.slug}>
-              <div
-                className={`project-card__media project-card__media--${
-                  palettes[index % palettes.length]
-                }`}
-                role="img"
-                aria-label={home.alt}
-              >
+              <div className="project-card__media">
+                <img
+                  src={home.image}
+                  alt={home.alt}
+                  className="project-card__image"
+                  loading="lazy"
+                />
                 <span
                   className={`project-card__status project-card__status--${statusModifier(
                     home.status,
@@ -53,9 +52,9 @@ export function Projects() {
 
                 <div className="project-card__footer">
                   <span className="project-card__price">{home.price}</span>
-                  <a className="project-card__link" href="/contact">
+                  <Link className="project-card__link" to={`/projects/${home.slug}`}>
                     View home
-                  </a>
+                  </Link>
                 </div>
               </div>
             </article>
