@@ -9,6 +9,7 @@ import { Projects } from './components/Projects'
 import { About } from './components/About'
 import { Contact } from './components/Contact'
 import { Footer } from './components/Footer'
+import { HomeDetail } from './pages/HomeDetail'
 import 'lenis/dist/lenis.css'
 import './App.css'
 
@@ -68,6 +69,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/projects/:slug" element={<HomeDetail />} />
           <Route path="/investors" element={<Investors />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />

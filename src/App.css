@@ -906,3 +906,25 @@
 .project-card__media::after {
   display: none;
 }
+
+/* Homepage hero background image */
+.hero__bg {
+  background:
+    linear-gradient(180deg, rgba(17, 16, 13, 0.55), rgba(17, 16, 13, 0.74)),
+    url('/projects/hero-home.webp') center / cover no-repeat;
+}
+
+/* Keep residence status badges from clipping */
+.project-card__status {
+  max-width: calc(100% - 2rem);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 900px) {
+  .project-card__status {
+    font-size: 0.65rem;
+    padding-inline: 0.6rem;
+  }
+}
